@@ -7,8 +7,10 @@
 
         public string Description { get; set; }
 
-        public int ActorId { get; set; }
+        public string ImageUrl { get; set; }
 
-        List<MovieActor> MovieActors { get; set; }
+        public int? ActorId { get; set; }
+
+       public List<MovieActor> MovieActors { get; set; }
     }
 }

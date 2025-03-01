@@ -1,0 +1,14 @@
+﻿@model Actor 
+
+<form action="/Home/UpdateActor" method="post" autocomplete="off">
+	<input type="hidden" name="Id" value="@Model.Id" />
+	<label>Oyuncunun Adını ve Soyadını Giriniz</label>
+	<input type="text" class="form-control" placeholder="Enter FullName" name="FullName" value="@Model.FullName">
+	<label>Oyuncunun Resim URL'sini giriniz.</label>
+	<input type="text" class="form-control" placeholder="Enter ImageURL" name="ImageUrl" value="@Model.ImageURL" />
+	<label>Oyuncunun Biograpy'sini giriniz.</label>
+	<input type="text" class="form-control" placeholder="Enter Biograpy" name="Biography" value="@Model.Biography" />
+	<label>Oyuncunun Yaşını Giriniz</label>
+	<input type="number" class="form-control" placeholder="Enter Age" name="Age" value="@Model.Age" />
+	<button type="submit" class="btn btn-primary mt-3 w-100">Oyuncu Güncelle</button>
+</form>

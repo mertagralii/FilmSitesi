@@ -1,0 +1,26 @@
+﻿@model List<Actor>
+@{
+	ViewData["Title"] = "Actors Page";
+}
+
+<div class="container mt-4">
+    <div class="container-fluid p-5 bg-success text-white text-center">
+        <h1>Oyuncu Kadrosu</h1>
+        <p>Oyuncularımız</p>
+    </div>
+    <div class="row">
+        @foreach (var actor in Model)
+        {
+            <div class="col-md-4 mt-5">
+                <div class="card mb-3">
+                    <img src="@actor.ImageURL" class="card-img-top" alt="Film Afişi">
+                    <div class="card-body">
+                        <h5 class="card-title">@actor.FullName</h5>
+                        <p class="card-text">Oyuncu</p>
+                        <a href="/Home/ActorDetails/@actor.Id" class="btn btn-primary">Detaya Git</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

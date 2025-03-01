@@ -1,0 +1,12 @@
+﻿@model Movie
+
+<form action="/Home/UpdateMovie" method="post" autocomplete="off">
+	<input type="hidden" name="Id" value="@Model.Id" />
+	<label>Filmin Resim URL'sini ekleyiniz.</label>
+	<input type="text" class="form-control" placeholder="Enter ImageUrl" name="ImageUrl" value="@Model.ImageUrl">
+	<label class="mt-3">Filmin Adınızı Giriniz.</label>
+	<input type="text" class="form-control " placeholder="Enter Title" name="Title" value="@Model.Title">
+	<label class="mt-3">Filmin Açıklamasını Giriniz.</label>
+	<input type="text" class="form-control " placeholder="Enter Description" name="Description" value="@Model.Description">
+	<button type="submit" class="btn btn-primary mt-3 w-100">Film Güncelle</button>
+</form>

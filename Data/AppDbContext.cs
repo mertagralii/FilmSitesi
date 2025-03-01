@@ -8,7 +8,7 @@ namespace FilmSitesi.Data
     {
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Actor> Actors { get; set; }
-        public DbSet<MovieActor> MovieCategories { get; set; }
+        public DbSet<MovieActor> MovieActor { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }

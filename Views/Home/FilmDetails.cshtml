@@ -1,0 +1,30 @@
+﻿@model Movie
+
+<div class="row">
+    <!-- Resmin yer alacağı sol taraf -->
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <img src="@Model.ImageUrl" class="card-img-top" alt="Film Afişi">
+        </div>
+    </div>
+
+    <!-- Film bilgilerinin yer alacağı sağ taraf -->
+    <div class="col-md-8 mt-5">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Title</h5>
+                <p class="card-text">@Model.Description</p>
+                <h2>Oyuncu Kadrosu:</h2>
+                @foreach (var actor in Model.MovieActors)
+                {
+                    <p>@actor.Actor.FullName</p>
+                }
+
+				<a href="/Home/DeleteMovie/@Model.Id" class="btn btn-danger">Filmi Sil</a>
+                <a href="/Home/UpdateMovie/@Model.Id" class="btn btn-info">Filmi Düzenle</a>
+                <a href="/Home/AddMovieActor/@Model.Id" class="btn btn-success">Oyuncu Ekle</a>
+                
+            </div>
+        </div>
+    </div>
+</div>
