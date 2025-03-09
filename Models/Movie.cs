@@ -11,6 +11,6 @@
 
         public int? ActorId { get; set; }
 
-       public List<MovieActor> MovieActors { get; set; }
+       public List<MovieActor>? MovieActors { get; set; }
     }
 }

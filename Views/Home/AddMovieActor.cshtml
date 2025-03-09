@@ -1,20 +1,14 @@
 ﻿@model Movie
+@{
+	List<Actor> actors = ViewBag.Actors;
+}
 
 <form action="/Home/AddMovieActor" method="post" autocomplete="off">
-    <label>Filmin Resim URL'sini ekleyiniz.</label>
-    <input type="text" class="form-control" placeholder="Enter ImageUrl" name="ImageUrl" value="@Model.ImageUrl">
-
-    <label class="mt-3">Filmin Adını Giriniz.</label>
-    <input type="text" class="form-control" placeholder="Enter Title" name="Title" value="@Model.Title">
-
-    <label class="mt-3">Filmin Açıklamasını Giriniz.</label>
-    <input type="text" class="form-control" placeholder="Enter Description" name="Description" value="@Model.Description">
-
-    <label class="mt-3">Eklemek istediğiniz oyuncuyu seçiniz</label>
+    <input type="hidden" name="MovieId" value="@Model.Id" />
     <select class="form-select mt-3" name="ActorId">
-        @foreach (var actor in Model.MovieActors)
+        @foreach (var actor in actors)
         {
-            <option value="@actor.ActorId">@actor.Actor.FullName</option>
+            <option value="@actor.Id">@actor.FullName</option>
         }
     </select>
 

@@ -137,28 +137,28 @@ public class HomeController : Controller
         return RedirectToAction("Actors");
     }
     [HttpGet]
-    public IActionResult AddMovieActor(int id) 
+    public IActionResult AddMovieActor(int id)
     {
         var filmDetails = _context.Movies
          .Where(m => m.Id == id) // Belirli bir film
          .Include(m => m.MovieActors) // Ýliþkili MovieActor tablosunu dahil et
          .ThenInclude(ma => ma.Actor) // MovieActor içindeki Actor tablosunu dahil et
          .FirstOrDefault();
+        ViewBag.Actors = _context.Actors.ToList();
         return View(filmDetails);
     }
     [HttpPost]
-    public IActionResult AddMovieActor(int id,int ActorÝd)
+    public IActionResult AddMovieActor(int MovieId, int ActorId)
     {
+        // Yeni MovieActor kaydý oluþtur
         var movieActor = new MovieActor
         {
-            MovieId = id,
-            ActorId = ActorÝd
+            MovieId = MovieId,
+            ActorId = ActorId
         };
 
-        // MovieActor'u veritabanýna ekle
+        // Veritabanýna ekle ve deðiþiklikleri kaydet
         _context.MovieActor.Add(movieActor);
-
-        // Deðiþiklikleri kaydet
         _context.SaveChanges();
         return RedirectToAction("Index");
     }

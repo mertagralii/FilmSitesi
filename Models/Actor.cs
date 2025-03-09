@@ -12,7 +12,7 @@
         public string? Biography { get; set; }
 
         public int? Age { get; set; }
-        public List<MovieActor> MovieActors { get; set; }
+        public List<MovieActor>? MovieActors { get; set; }
 
 
 
